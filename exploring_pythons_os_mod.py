@@ -3,13 +3,13 @@ import os
 def list_directory_contents(full_path='.'):
     with os.scandir(full_path) as entries:
         for entry in entries:
-            if entry.is_file() or entry.is_dir():
-                print(entry.name)
-
+            if entry.is_file():
+                print(f" File: {entry.name}")
+            else:
+                print(f"Subdirectory: {entry.name}")
 def main():
     while True:
         try:
-            print(f"Files and Directories in '% s':".path)
             directory_path = input("Please enter the directory you would like to work with: ")
             if os.path.isdir(directory_path):
                 list_directory_contents(directory_path)
